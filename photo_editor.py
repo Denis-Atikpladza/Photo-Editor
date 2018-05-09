@@ -1,5 +1,4 @@
 #Denis Atikpladza
-#100938122
 #Photo editor calls filters upon user requests
 
 import sys  # get_image calls exit
@@ -35,7 +34,8 @@ def options():
     print('Enter a command from the following options:')
     print('Type L: to Load image')
     print('Type N: for Negative  G: for Grayscale  X: for extreme contrast' +
-          '  S: for Sepia tint  E: for Edge detect')
+          '  T: for Sepia tint  E: for Edge detect')
+    print('Type S: for solarize  P: for Posterize  B: for Blur')
     print('Type Q: to quit')
 
 def check(image):
@@ -92,8 +92,34 @@ def __negative(image):
     if check(image) == False:
         negative(image)
         show(image)
+        
+def __solarize(image, threshold):
+    """
+    Checks if an image is loaded, calls solarize 
+    and displays the image
+    """      
+    if check(image) == False:
+        solarize(image, threshold)
+        show(image) 
+        
+def __posterize(image):
+    """
+    Checks if an image is loaded, calls posterize 
+    and displays the image
+    """      
+    if check(image) == False:
+        posterize(image)
+        show(image)
+        
+def __blur(image):
+    """
+    Checks if an image is loaded, calls better blur 
+    and displays the image
+    """      
+    if check(image) == False:
+        blur_better(image)
+        show(image)    
     
-
 def main():
     """
     main program that determins which filter will be used based on user input
@@ -115,11 +141,18 @@ def main():
             __grayscale(img1)
         elif var == 'X':
             __extreme_contrast(img1)
-        elif var == 'S':
+        elif var == 'T':
             __sepia_tint(img1) 
         elif var == 'E':
             thresh = int (input('Please select a threshold  '))
             __edge_detect(img1, thresh)
+        elif var == 'S':
+            thresh = int (input('Please select a threshold  '))
+            __solarize(img1, thresh) 
+        elif var == 'P':
+            __posterize(img1) 
+        elif var == 'B':
+            __blur(img1)         
             
         else:
             print('ERROR: No such command  ')

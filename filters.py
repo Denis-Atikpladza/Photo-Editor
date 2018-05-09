@@ -1,12 +1,8 @@
 from Cimpl import *
 
 #Denis Atikpladza
-#100938122
-#Filters from Lab 5 and 6
+#Filters 
 
-
-
-#Lab 5 solutions
 
 def negative(image):
     """ (Cimpl.Image) -> None
@@ -107,17 +103,17 @@ def sepia_tint(image):
     
     for x, y, (red, green, blue) in image:
         
-        if r < 63:
-            r = r * 0.9
-            b = b * 1.1
+        if red < 63:
+            red = red * 0.9
+            blue = blue * 1.1
         
-        elif 63<= r <= 191:
-            b = b * 0.85
-            r = r * 1.15
+        elif 63<= red <= 191:
+            blue = blue * 0.85
+            red = red * 1.15
             
         else:
-            b = b *0.93
-            r = r* 1.08
+            blue = blue * 0.93
+            red = red * 1.08
             
 
 def _adjust_component(amount):
@@ -163,9 +159,6 @@ def posterize(image):
         set_color(image, x, y, new_col)  
         
         
-
-
-# Lab 6 solutions
 
 
 def detect_edges(image, threshold):
@@ -234,28 +227,6 @@ def blur_better(source):
     # pixels to affect the blurring of subsequent pixels.
     
     target = copy(source)
-    
-    # Recall that the x coordinates of an image's pixels range from 0 to
-    # get_width() - 1, inclusive, and the y coordinates range from 0 to
-    # get_height() - 1.
-    #
-    # To blur the pixel at location (x, y), we use that pixel's RGB components,
-    # as well as the components from the four neighbouring pixels located at
-    # coordinates (x - 1, y), (x + 1, y), (x, y - 1) and (x, y + 1).
-    #
-    # When generating the pixel coordinates, we have to ensure that (x, y)
-    # is never the location of pixel on the top, bottom, left or right edges
-    # of the image, because those pixels don't have four neighbours.
-    #
-    # As such, we can't use this loop to generate the x and y coordinates:
-    #
-    # for y in range(0, get_height(source)):
-    #     for x in range(0, get_width(source)):
-    #
-    # With this loop, when x or y is 0, subtracting 1 from x or y yields -1, 
-    # which is not a valid coordinate. Similarly, when x equals get_width() - 1 
-    # or y equals get_height() - 1, adding 1 to x or y yields a coordinate that
-    # is too large.
     
     for y in range(1, get_height(source) - 1):
         for x in range(1, get_width(source) - 1):
