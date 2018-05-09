@@ -1,10 +1,11 @@
 # Photo-Editor
 Simple photo editor using python 3
 
-*************************************************************************************************************
+
 *** The Cimpl.py file is not my creation and was given to my by Prof. Donald Baiely of Carleton University***
+
 *** This file provides the functionality to interact and manipulate digital images.                       ***
-*************************************************************************************************************
+
 
 # About
 
