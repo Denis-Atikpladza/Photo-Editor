@@ -15,6 +15,8 @@ ones that are displayed on snapchat or your phone's filters.
 # How to Run
 This is compatable with any IDE that uses python 3
 
+If you have no JPGs there are 2 personal files provided
+
 Download the project and (ensure all files are in the same folder) and run the photo editor.
 A prompt will appear with options on the console (It is caps sensative) enter your command
 and then press the enter key
